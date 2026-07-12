@@ -1,0 +1,24 @@
+{
+  "name": "metafactory-cortex-adapter-web",
+  "version": "0.1.0",
+  "description": "Cortex web/SSE surface adapter — installable plugin bundle (ADR-0024, cortex#1794 S9)",
+  "module": "src/plugin.ts",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "latest",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
