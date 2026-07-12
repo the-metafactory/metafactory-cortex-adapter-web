@@ -37,7 +37,7 @@ import { WebAdapter } from "../index";
 import type { WebAdapterInfra } from "../index";
 import { WebBindingSchema } from "../schema";
 import type { WebBinding } from "../schema";
-import type { InboundMessage } from "../vendor/surface-sdk";
+import type { InboundMessage } from "@the-metafactory/cortex/surface-sdk";
 // cortex#1794 (S9 MOVE) — reuse the SAME "no policy configured" default
 // `webAdapterPlugin.createAdapter` falls back to, rather than hand-rolling a
 // second copy that could drift from it.

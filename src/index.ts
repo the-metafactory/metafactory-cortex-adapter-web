@@ -75,7 +75,7 @@ import type {
   OutboundFile,
   ContextMessage,
   AdapterPolicyPort,
-} from "./vendor/surface-sdk";
+} from "@the-metafactory/cortex/surface-sdk";
 import type { WebBinding } from "./schema";
 
 // =============================================================================
@@ -148,7 +148,7 @@ export interface WebAdapterInfra {
   principal: { id?: string };
   /**
    * cortex#1794 (S9b) — the host-injected policy-resolution port (see
-   * `AdapterPolicyPort` in `../../surface-sdk`). REQUIRED: `webAdapterPlugin
+   * `AdapterPolicyPort` in `@the-metafactory/cortex/surface-sdk`). REQUIRED: `webAdapterPlugin
    * .createAdapter` always supplies a bound port — a "no policy configured"
    * port (deny-by-default) when the host has no live `PolicyEngine` yet, e.g.
    * the shared surface-gateway's shadow-stage construction — so

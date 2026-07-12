@@ -2,10 +2,13 @@
  * cortex#1788 (S3, ADR-0024 D5) — Web/SSE `AdapterPlugin`.
  * cortex#1794 (S9) — final MOVE slice: this file now lives in the
  * `metafactory-cortex-adapter-web` bundle repo, not cortex core. It (and
- * `./index.ts`) import ONLY from `./vendor/surface-sdk` (a vendored type-only
- * stand-in for cortex's plugin SDK barrel — see that file's doc for why) plus
- * intra-directory siblings (`./index`, `./schema`) — no cortex runtime module
- * at all, in-tree or otherwise.
+ * `./index.ts`) import the SDK CONTRACT (type-only) from
+ * `@the-metafactory/cortex/surface-sdk` — resolved by `tsconfig.json`'s `paths`
+ * to the flat `.d.ts` that `bun run sync:sdk` fetches from cortex at the pinned
+ * ref (`.cortex-sdk-ref`), NOT a hand-vendored copy (cortex#1950) — plus
+ * intra-directory siblings (`./index`, `./schema`). No cortex runtime module at
+ * all, in-tree or otherwise: the SDK imports are `import type`, erased at
+ * runtime.
  *
  * S9b's in-tree version of this file imported `stringBindingField` +
  * `buildAdapterPolicyPort` from cortex's `src/adapters/plugin-support.ts` — a
@@ -28,7 +31,7 @@
 
 import { WebAdapter, type AdapterAgentIdentity } from "./index";
 import { WebBindingSchema, type WebBinding } from "./schema";
-import type { AdapterPlugin, AdapterPolicyPort, InboundMessage } from "./vendor/surface-sdk";
+import type { AdapterPlugin, AdapterPolicyPort, InboundMessage } from "@the-metafactory/cortex/surface-sdk";
 
 /**
  * Construction args `createAdapter` accepts — the same shape

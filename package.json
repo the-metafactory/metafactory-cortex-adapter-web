@@ -7,6 +7,8 @@
   "license": "AGPL-3.0-only",
   "private": true,
   "scripts": {
+    "sync:sdk": "bun scripts/sync-surface-sdk.ts",
+    "postinstall": "bun scripts/sync-surface-sdk.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit"
   },
